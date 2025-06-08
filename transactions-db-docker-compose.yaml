@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: transactions-db-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: transactions-db-user
+      POSTGRES_PASSWORD: transactions-db-password
+      POSTGRES_DB: transactions-db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - transactions_db_network
+
+volumes:
+  pgdata:
+
+networks:
+  cdc_net:
+    driver: bridge
