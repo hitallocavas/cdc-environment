@@ -20,5 +20,5 @@ volumes:
   pgdata:
 
 networks:
-  cdc_net:
+  transactions_db_network:
     driver: bridge
