@@ -1,0 +1,1 @@
+psql -h localhost -U transactions-db-user -d transactions-db
