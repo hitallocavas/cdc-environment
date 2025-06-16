@@ -11,7 +11,7 @@ curl -X POST http://localhost:8083/connectors \
       "database.user": "transactions-db-user",
       "database.password": "transactions-db-password",
       "database.dbname": "transactions-db",
-      "database.server.name": "transactions-cdc",
+      "database.server.name": "transactions.cdc",
       "plugin.name": "pgoutput",
       "table.include.list": "public.transactions",
       "slot.name": "debezium_slot",
