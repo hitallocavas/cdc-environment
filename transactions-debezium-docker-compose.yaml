@@ -2,8 +2,6 @@ version: "3.8"
 services:
   connect:
     image: debezium/connect:2.6
-    depends_on:
-      - kafka
     environment:
       BOOTSTRAP_SERVERS: kafka:9092
       GROUP_ID: 1
