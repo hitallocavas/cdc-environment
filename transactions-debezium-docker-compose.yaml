@@ -3,7 +3,7 @@ services:
   connect:
     image: debezium/connect:2.6
     environment:
-      BOOTSTRAP_SERVERS: kafka:9092
+      BOOTSTRAP_SERVERS: localhost:9092
       GROUP_ID: 1
       CONFIG_STORAGE_TOPIC: debezium_connect_config
       OFFSET_STORAGE_TOPIC: debezium_connect_offsets
