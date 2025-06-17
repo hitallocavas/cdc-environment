@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: reports-db-container
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: reports-db-user
+      MONGO_INITDB_ROOT_PASSWORD: reports-db-password
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - transactions_db_network
+
+volumes:
+  mongo_data:
+
+networks:
+  transactions_db_network:
+    external: true
