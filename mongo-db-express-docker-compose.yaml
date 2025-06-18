@@ -1,13 +1,20 @@
-version: '3'
+version: "3.8"
+
 services:
   mongo-express:
-    image: mongo-express
-    container_name: mongo-express
+    image: mongo-express:1.0.0
+    container_name: mongo-express-container
     ports:
-      - "8087:8087"
+      - "8087:8081"   # 8087 no host, mapeando para 8081 no container
     environment:
-      - ME_CONFIG_MONGODB_SERVER=mongo
-      - ME_CONFIG_MONGODB_PORT=27017
-      - ME_CONFIG_BASICAUTH_USERNAME=reports-db-user
-      - ME_CONFIG_BASICAUTH_PASSWORD=reports-db-password
-    restart: always
+      ME_CONFIG_MONGODB_ADMINUSERNAME: reports-db-user
+      ME_CONFIG_MONGODB_ADMINPASSWORD: reports-db-password
+      ME_CONFIG_MONGODB_SERVER: reports-db-container
+      ME_CONFIG_BASICAUTH_USERNAME: express
+      ME_CONFIG_BASICAUTH_PASSWORD: express-password
+    networks:
+      - transactions_db_network
+
+networks:
+  transactions_db_network:
+    external: true
